@@ -1,0 +1,13 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "go": "node --experimental-json-modules index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

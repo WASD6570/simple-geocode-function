@@ -1,0 +1,18 @@
+{
+  "comercios": [
+    {
+      "name": "test",
+      "id": "123abc",
+      "lat": -30.632094,
+      "lng": -67.471958,
+      "isOnRadius": false
+    },
+    {
+      "name": "test2",
+      "id": "456def",
+      "lat": -30.643338,
+      "lng": -67.4579887,
+      "isOnRadius": false
+    }
+  ]
+}
