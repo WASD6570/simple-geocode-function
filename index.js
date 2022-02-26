@@ -40,7 +40,13 @@ export default function main(datos, lat_usr, lng_usr, radio) {
   //funcion que devuelve un array con los comercios que estan dentro del radio deseado
   //y los marca en el mapa
 
-  function distanceCalculator(lat_actual, lng_actual, radius, jsonComercios) {
+  function distanceCalculator(
+    lat_actual,
+    lng_actual,
+    radius,
+    jsonComercios,
+    attachMarker
+  ) {
     const { comercios } = jsonComercios;
     const raw_array_of_comercios = comercios.map((comercio) => {
       if (
@@ -53,8 +59,12 @@ export default function main(datos, lat_usr, lng_usr, radio) {
       ) {
         comercio.isOnRadius = true;
       } else comercio.isOnRadius = false;
-      if (comercio.isOnRadius) {
+      if (comercio.isOnRadius && attachMarker) {
         createMarker({ lat: comercio.lat, lng: comercio.lng });
+        return comercio;
+      }
+      if (comercio.isOnRadius) {
+        console.log("entre aca ");
         return comercio;
       }
     });
@@ -200,7 +210,7 @@ export default function main(datos, lat_usr, lng_usr, radio) {
 
   function attachMarkersAndCircleToMap(lat, lng, radius, data) {
     if (radius) {
-      distanceCalculator(lat, lng, radius, data);
+      distanceCalculator(lat, lng, radius, data, true);
       createRadius(lat, lng, radius);
     }
     const form = document.getElementById("form");
@@ -208,10 +218,13 @@ export default function main(datos, lat_usr, lng_usr, radio) {
       e.preventDefault();
       setLocation();
       removeMarkers();
-      distanceCalculator(lat, lng, e.target.radius.value, datos);
+      distanceCalculator(lat, lng, e.target.radius.value, datos, true);
       createRadius(lat, lng, e.target.radius.value);
     });
   }
+
+  // retorna los comercios que estan dentro del radio deseado
+  return distanceCalculator(lat_usr, lng_usr, radio, datos, false);
 }
 
 //main()

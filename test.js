@@ -12,6 +12,6 @@ import jsonData from "./test.json" assert { type: "json" };
 // si se va a testear de la forma descripta en la linea superior se recomienda solo
 // pasarle a la funcion main un array de objetos compatible.
 
-main(jsonData, -31.55492, -68.547311, 1.2);
+console.log(main(jsonData, -31.55492, -68.547311, 5));
 
 //main(jsonData);
