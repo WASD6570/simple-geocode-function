@@ -1,16 +1,13 @@
 {
-  "name": "test",
+  "name": "simple-geocode-functions",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "go": "node --experimental-json-modules index.js"
+    "go": "node --experimental-json-modules test.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@googlemaps/js-api-loader": "^1.13.7"
-  }
+  "license": "ISC"
 }

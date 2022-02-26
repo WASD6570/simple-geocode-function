@@ -3,15 +3,15 @@
     {
       "name": "test",
       "id": "123abc",
-      "lat": -30.632094,
-      "lng": -67.471958,
+      "lat": -31.52321,
+      "lng": -68.5108508,
       "isOnRadius": false
     },
     {
       "name": "test2",
       "id": "456def",
-      "lat": -30.643338,
-      "lng": -67.4579887,
+      "lat": -31.541866,
+      "lng": -68.52269,
       "isOnRadius": false
     }
   ]

@@ -5,11 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script defer src="./map.js" type="module"></script>
-    <script defer src="./index.js" type="module"></script>
     <style>
       #map {
-        height: 100%;
+        height: 400px;
       }
       html,
       body {
@@ -21,5 +19,25 @@
   </head>
   <body>
     <div id="map"></div>
+    <br />
+    <form id="form">
+      <label for="radius">
+        <input type="text" id="radius" placeholder="Radio expresado en km" />
+        <button>ingresa el radio</button>
+      </label>
+      <br />
+      <br />
+    </form>
+    <form id="testform">
+      <label for="lat">
+        <input type="text" id="lat" placeholder="latitud" />
+      </label>
+      <label for="lng">
+        <input type="text" id="lng" placeholder="longitud" />
+      </label>
+      <button>coordenadas de prueba</button>
+    </form>
+    <script src="./index.js" type="module"></script>
+    <script src="./test.js" type="module"></script>
   </body>
 </html>
