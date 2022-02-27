@@ -47,20 +47,20 @@ export default function main(datos, lat_usr, lng_usr, radio) {
     jsonComercios,
     attachMarker
   ) {
-    const { comercios } = jsonComercios;
+    const { ListQuery: comercios } = jsonComercios;
     const raw_array_of_comercios = comercios.map((comercio) => {
       if (
         getDistanceFromLatLonInKm(
           lat_actual,
           lng_actual,
-          comercio.lat,
-          comercio.lng
+          Number(comercio.lat),
+          Number(comercio.lng)
         ) <= radius
       ) {
         comercio.isOnRadius = true;
       } else comercio.isOnRadius = false;
       if (comercio.isOnRadius && attachMarker) {
-        createMarker({ lat: comercio.lat, lng: comercio.lng });
+        createMarker({ lat: Number(comercio.lat), lng: Number(comercio.lng) });
         return comercio;
       }
       if (comercio.isOnRadius) {

@@ -12,6 +12,16 @@ import jsonData from "./test.json" assert { type: "json" };
 // si se va a testear de la forma descripta en la linea superior se recomienda solo
 // pasarle a la funcion main un array de objetos compatible.
 
-console.log(main(jsonData, -31.55492, -68.547311, 5));
+fetch(
+  "http://181.170.127.82/ApiInterface/api/Query/GetNearbyShops/?Token=C4CF8541BD184606B44F05C812CAFAF5"
+)
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data);
+    main(data, -31.55492, -68.547311, 3);
+  })
+  .catch((err) => console.log(err));
+
+//console.log(main(jsonData, -31.55492, -68.547311, 3));
 
 //main(jsonData);
