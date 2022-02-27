@@ -64,7 +64,6 @@ export default function main(datos, lat_usr, lng_usr, radio) {
         return comercio;
       }
       if (comercio.isOnRadius) {
-        console.log("entre aca ");
         return comercio;
       }
     });
