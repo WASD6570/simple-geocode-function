@@ -186,7 +186,7 @@ export default function main(datos, lat_usr, lng_usr, radio) {
         lat: userLocation.lat,
         lng: userLocation.lng,
       },
-      zoom: 12,
+      zoom: 5,
     });
     new google.maps.Marker({
       position: {
