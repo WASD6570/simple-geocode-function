@@ -18,7 +18,7 @@ fetch(
   .then((res) => res.json())
   .then((data) => {
     console.log(data);
-    main(data, -31.55492, -68.547311, 250);
+    main(data, -32.89608, -68.83761, 5);
   })
   .catch((err) => console.log(err));
 

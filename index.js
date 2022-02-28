@@ -173,6 +173,18 @@ export default function main(datos, lat_usr, lng_usr, radio) {
     });
   }
 
+  // hace que el zoom sea variable dependiendo del radio
+
+  function setZoomLevel(lat, lng, radius, map) {
+    let centerSfo = new google.maps.LatLng(lat, lng);
+    let circle = new google.maps.Circle({
+      radius: radius * 515,
+      center: centerSfo,
+    });
+    let bounds = circle.getBounds();
+    map.fitBounds(bounds);
+  }
+
   // inicializa el mapa en el dom, pone un marcador en la ubicacion del user
   // y de los comercios locales si estan dentro del radio
 
@@ -185,7 +197,6 @@ export default function main(datos, lat_usr, lng_usr, radio) {
         lat: userLocation.lat,
         lng: userLocation.lng,
       },
-      zoom: 5,
     });
     new google.maps.Marker({
       position: {
@@ -195,11 +206,14 @@ export default function main(datos, lat_usr, lng_usr, radio) {
       map: map,
     });
 
+    setZoomLevel(userLocation.lat, userLocation.lng, radio, map);
+
     attachMarkersAndCircleToMap(
       userLocation.lat,
       userLocation.lng,
       radio,
-      datos
+      datos,
+      map
     );
     changeLocation();
   };
@@ -207,7 +221,7 @@ export default function main(datos, lat_usr, lng_usr, radio) {
   // adjunta los marcadores de los comercios dentro del radio deseado
   // y adjunta el radio deseado al mapa
 
-  function attachMarkersAndCircleToMap(lat, lng, radius, data) {
+  function attachMarkersAndCircleToMap(lat, lng, radius, data, map) {
     if (radius) {
       distanceCalculator(lat, lng, radius, data, true);
       createRadius(lat, lng, radius);
@@ -219,6 +233,7 @@ export default function main(datos, lat_usr, lng_usr, radio) {
       removeMarkers();
       distanceCalculator(lat, lng, e.target.radius.value, datos, true);
       createRadius(lat, lng, e.target.radius.value);
+      setZoomLevel(lat, lng, e.target.radius.value, map);
     });
   }
 
